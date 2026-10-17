@@ -42,7 +42,11 @@ tooltip label {
 /* ---- left ---- */
 #workspaces { margin-left: 6px; }
 #workspaces button {
-    padding: 0 12px;
+    min-width: 28px;
+    min-height: 28px;
+    padding: 0;
+    margin: 5px 3px;
+    border-radius: 14px;
     color: @disabled;
     background: transparent;
     box-shadow: none;
