@@ -5,9 +5,9 @@ exec swaylock -f \
     --color 181818 \
     --inside-color 181818cc --inside-clear-color 181818cc \
     --inside-ver-color 181818cc --inside-wrong-color 181818cc \
-    --ring-color 525252 --ring-ver-color c3efed \
-    --ring-clear-color 939393 --ring-wrong-color C9D9D8 \
-    --key-hl-color c3efed --bs-hl-color 939393 \
+    --ring-color 525252 --ring-ver-color d9d9d9 \
+    --ring-clear-color 939393 --ring-wrong-color ffffff \
+    --key-hl-color d9d9d9 --bs-hl-color 939393 \
     --line-color 00000000 --line-ver-color 00000000 \
     --line-clear-color 00000000 --line-wrong-color 00000000 \
     --separator-color 00000000 \

@@ -135,10 +135,10 @@ bar {
 }
 
 ### Look
-client.focused          #c3efed #181818 #EDEDED #c3efed #c3efed
+client.focused          #d9d9d9 #181818 #EDEDED #d9d9d9 #d9d9d9
 client.focused_inactive #525252 #181818 #939393 #525252 #181818
 client.unfocused        #525252 #181818 #939393 #525252 #181818
-client.urgent           #C9D9D8 #181818 #EDEDED #C9D9D8 #C9D9D8
+client.urgent           #ffffff #181818 #EDEDED #ffffff #ffffff
 client.placeholder      #525252 #181818 #939393 #525252 #181818
 
 default_border pixel 2

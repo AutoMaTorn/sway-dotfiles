@@ -11,5 +11,5 @@ default-timeout=5000
 anchor=top-right
 
 [urgency=high]
-border-color=#c3efed
+border-color=#d9d9d9
 default-timeout=0

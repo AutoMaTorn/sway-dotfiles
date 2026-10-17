@@ -4,18 +4,15 @@
     "height": 31,
     "spacing": 0,
 
-    "modules-left": ["sway/workspaces", "sway/mode", "mpris"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-right": [
-        "tray",
         "sway/language",
-        "battery",
         "pulseaudio",
         "memory",
         "bluetooth",
         "network",
         "clock#date",
-        "clock#time",
-        "custom/power"
+        "clock#time"
     ],
 
     "sway/workspaces": {
@@ -28,29 +25,9 @@
         "format": "{}"
     },
 
-    "mpris": {
-        "format": "{artist} - {title}",
-        "format-stopped": "No music",
-        "max-length": 40,
-        "on-click": "playerctl play-pause"
-    },
-
-    "tray": {
-        "icon-size": 16,
-        "spacing": 8
-    },
-
     "sway/language": {
         "format": "{short}",
         "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
-    },
-
-    "battery": {
-        "states": { "warning": 25, "critical": 10 },
-        "format": "BAT {capacity}%",
-        "format-charging": "CHR {capacity}%",
-        "format-plugged": "AC {capacity}%",
-        "format-full": "FULL"
     },
 
     "pulseaudio": {
@@ -74,7 +51,7 @@
         "format-connected-battery": "BT {device_alias} {device_battery_percentage}%",
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
-        "on-click": "blueman-manager",
+        "on-click": "kitty -e bluetui",
         "on-click-right": "rfkill toggle bluetooth"
     },
 
@@ -99,11 +76,5 @@
         "interval": 1,
         "format": "{:%H:%M}",
         "tooltip": false
-    },
-
-    "custom/power": {
-        "format": "⏻",
-        "tooltip": false,
-        "on-click": "~/.config/sway/power-menu.sh"
     }
 }
