@@ -144,8 +144,8 @@ client.placeholder      #525252 #181818 #939393 #525252 #181818
 default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders smart
-gaps inner 10
-gaps outer 5
+gaps inner 8
+gaps outer 0
 
 # Settings windows opened from the bar float instead of tiling
 for_window [app_id="pavucontrol"] floating enable
