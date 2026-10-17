@@ -1,0 +1,30 @@
+# Debian 13 (trixie). Read by install.sh; sections: [apt] [manual]
+
+[apt]
+# Session
+sway swaybg swayidle swaylock waybar fuzzel mako-notifier kanshi xwayland
+lxpolkit
+# Screenshots & clipboard
+grim slurp wl-clipboard
+# Portals
+xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk dbus-user-session
+# Audio
+pipewire pipewire-pulse wireplumber pulseaudio-utils pavucontrol playerctl
+# Network & Bluetooth
+network-manager network-manager-gnome wpasupplicant bluez rfkill
+# Hardware
+brightnessctl
+# Apps & files
+kitty thunar thunar-volman tumbler gvfs gvfs-backends flatpak
+# Tools
+jq libnotify-bin curl git ca-certificates gnupg cargo
+# Fonts
+fonts-jetbrains-mono fonts-noto-color-emoji
+
+[manual]
+# brave-browser  - official apt repo (install.sh adds it)
+# bluetui        - cargo install bluetui (install.sh does it)
+# JetBrainsMono Nerd Font - https://github.com/ryanoasis/nerd-fonts (waybar/fuzzel font)
+# telegram       - flatpak install flathub org.telegram.desktop
+# sponux         - own app
+# wallpaper      - ~/.config/wallpapers/wallpaper.jpeg (from ~/dotfiles)

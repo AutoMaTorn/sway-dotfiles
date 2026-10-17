@@ -1,7 +1,35 @@
 #!/usr/bin/env bash
-# Symlink sway session configs into ~/.config.
+# Sway session: install packages (Debian) and symlink configs into ~/.config.
 set -euo pipefail
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if command -v apt-get >/dev/null; then
+    mapfile -t PKGS < <(sed -n '/^\[apt\]/,/^\[/p' "$DIR/packages.txt" | grep -vE '^(\[|#|$)' | tr ' ' '\n' | grep .)
+    sudo apt-get update
+    sudo apt-get install -y "${PKGS[@]}"
+
+    if ! command -v brave-browser >/dev/null; then
+        sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg \
+            https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" \
+            | sudo tee /etc/apt/sources.list.d/brave-browser-release.list >/dev/null
+        sudo apt-get update
+        sudo apt-get install -y brave-browser
+    fi
+
+    if ! command -v bluetui >/dev/null; then
+        cargo install bluetui
+        echo 'bluetui installed to ~/.cargo/bin: add it to PATH'
+    fi
+fi
+
+# Everything the sway config launches must exist
+missing=()
+for c in sway waybar fuzzel mako kanshi swayidle swaylock grim slurp wl-copy \
+         brightnessctl playerctl pactl lxpolkit kitty thunar brave-browser bluetui; do
+    command -v "$c" >/dev/null || [ -x "$HOME/.cargo/bin/$c" ] || missing+=("$c")
+done
+[ ${#missing[@]} -eq 0 ] || echo "WARNING missing: ${missing[*]}"
 
 link() {
     local src="$1" dst="$2"

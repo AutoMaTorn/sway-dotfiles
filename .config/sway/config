@@ -34,8 +34,7 @@ bindgesture swipe:3:right workspace prev
 ### Autostart
 exec mako
 exec kanshi
-exec nm-applet --indicator
-exec blueman-applet
+exec lxpolkit
 exec nmcli general reload
 exec nmcli radio wifi on
 exec_always sponux --daemon
@@ -51,9 +50,10 @@ bindsym $super+Return exec kitty
 bindsym $super+space exec fuzzel
 bindsym $super+d exec sponux
 bindsym $super+shift+s exec grim -g "$(slurp)" - | wl-copy -t image/png
+bindsym Print exec mkdir -p ~/Pictures && grim ~/Pictures/$(date +%F_%H-%M-%S).png
 bindsym $super+l exec ~/.config/sway/lock.sh
 bindsym $super+e exec thunar
-bindsym $super+w exec yandex-browser
+bindsym $super+w exec brave-browser
 bindsym $super+t exec flatpak run org.telegram.desktop
 bindsym $super+n exec makoctl dismiss
 bindsym $super+Escape exec ~/.config/sway/power-menu.sh
