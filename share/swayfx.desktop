@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=SwayFX
+Comment=Sway with rounded corners and effects
+Exec=/home/torn/sway-dotfiles/bin/sway-session
+Type=Application
+DesktopNames=sway
