@@ -21,11 +21,13 @@
 }
 
 window#waybar {
+    border-radius: 12px;
     background: @background;
     color: @foreground;
 }
 
 tooltip {
+    border-radius: 10px;
     background: @background;
     border: 2px solid @color6;
 }
@@ -35,6 +37,7 @@ tooltip label {
 
 /* ---- left ---- */
 #workspaces button {
+    border-radius: 12px;
     padding: 0 12px;
     color: @disabled;
     background: transparent;
