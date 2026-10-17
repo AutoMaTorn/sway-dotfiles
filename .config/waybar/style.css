@@ -21,9 +21,13 @@
 }
 
 window#waybar {
-    border-radius: 12px;
-    background: @background;
+    background: transparent;
     color: @foreground;
+}
+
+window#waybar > box {
+    background: @background;
+    border-radius: 14px;
 }
 
 tooltip {
