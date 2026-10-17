@@ -1,0 +1,4 @@
+#!/bin/sh
+# Launch SwayFX built in ~/.local (falls back to system sway).
+export PATH="$HOME/.local/bin:$PATH"
+exec sway "$@"
