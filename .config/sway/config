@@ -152,3 +152,6 @@ for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+
+# Dark theme by default (GTK4/libadwaita via color-scheme, GTK3 via settings.ini)
+exec_always gsettings set org.gnome.desktop.interface color-scheme prefer-dark

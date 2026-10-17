@@ -16,6 +16,9 @@ link() {
 for d in sway waybar fuzzel mako kanshi; do
     link "$DIR/.config/$d" "$HOME/.config/$d"
 done
+for v in 3.0 4.0; do
+    link "$DIR/.config/gtk-$v/settings.ini" "$HOME/.config/gtk-$v/settings.ini"
+done
 # ~/.config/xdg-desktop-portal may itself be a symlink (i3 dotfiles repo);
 # link the single file so both sessions coexist.
 link "$DIR/.config/xdg-desktop-portal/sway-portals.conf" \
