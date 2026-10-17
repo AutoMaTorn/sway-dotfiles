@@ -47,9 +47,9 @@
     },
 
     "bluetooth": {
-        "format": "[BT on]",
-        "format-off": "[BT off]",
-        "format-disabled": "[BT off]",
+        "format": "[BT]",
+        "format-off": "[BT]",
+        "format-disabled": "[BT]",
         "format-connected": "[BT {device_alias}]",
         "format-connected-battery": "[BT {device_alias} {device_battery_percentage}%]",
         "tooltip-format-connected": "{device_enumerate}",
@@ -60,7 +60,7 @@
 
     "network": {
         "interval": 2,
-        "format-wifi": "[{essid} {signalStrength}%]",
+        "format-wifi": "[{essid}]",
         "format-ethernet": "[ETH]",
         "format-linked": "[{ifname} (no IP)]",
         "format-disconnected": "[offline]",
