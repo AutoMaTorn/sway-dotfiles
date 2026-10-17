@@ -73,7 +73,7 @@ tooltip label {
 }
 
 /* ---- right ---- */
-#language, #pulseaudio, #memory, #bluetooth, #network, #clock {
+#language, #pulseaudio, #memory, #bluetooth, #network, #battery, #clock {
     padding: 0 10px;
     background: transparent;
     color: @foreground;
@@ -86,4 +86,15 @@ tooltip label {
 #bluetooth.disabled,
 #network.disconnected {
     color: @disabled;
+}
+
+/* Low battery while discharging: inverted, like the urgent workspace */
+#battery.warning:not(.charging) {
+    color: @alert;
+    font-weight: bold;
+}
+#battery.critical:not(.charging) {
+    background: @alert;
+    color: @background;
+    border-radius: 14px;
 }

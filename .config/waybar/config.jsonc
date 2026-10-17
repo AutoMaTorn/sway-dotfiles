@@ -11,6 +11,7 @@
     "modules-center": ["clock#time"],
     "modules-right": [
         "sway/language",
+        "battery",
         "pulseaudio",
         "memory",
         "bluetooth",
@@ -67,6 +68,17 @@
         "tooltip-format": "{ifname} {ipaddr}\n↓ {bandwidthDownBytes}  ↑ {bandwidthUpBytes}",
         "on-click": "kitty -e nmtui",
         "on-click-right": "nm-connection-editor"
+    },
+
+    // Hidden automatically on machines without a battery
+    "battery": {
+        "interval": 30,
+        "states": { "warning": 20, "critical": 10 },
+        "format": "[BAT {capacity}%]",
+        "format-charging": "[CHR {capacity}%]",
+        "format-plugged": "[AC {capacity}%]",
+        "format-full": "[AC {capacity}%]",
+        "tooltip-format": "{timeTo}\n{power} W"
     },
 
     "clock#date": {
