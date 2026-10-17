@@ -14,7 +14,7 @@
 
 * {
     font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 14px;
+    font-size: 15px;
     border: none;
     border-radius: 0;
     min-height: 0;
@@ -35,7 +35,7 @@ tooltip label {
 
 /* ---- left ---- */
 #workspaces button {
-    padding: 0 8px;
+    padding: 0 12px;
     color: @disabled;
     background: transparent;
     box-shadow: none;
@@ -58,16 +58,16 @@ tooltip label {
 #mode {
     background: @alert;
     color: @background;
-    padding: 0 8px;
+    padding: 0 12px;
 }
 
 /* ---- right ---- */
 #language, #pulseaudio, #memory, #bluetooth, #network, #clock {
-    padding: 0 4px;
+    padding: 0 10px;
     background: transparent;
     color: @foreground;
 }
-#clock.time { padding-right: 10px; }
+#clock.time { padding-right: 16px; }
 
 /* states */
 #pulseaudio.muted,
