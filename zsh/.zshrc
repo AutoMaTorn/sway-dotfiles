@@ -34,11 +34,6 @@ if (( $+functions[prompt_segment] )); then
 fi
 alias ll='ls -lah --color=auto' gs='git status'
 
-# Show system info only in interactive shells, if fastfetch is installed
-if [[ -o interactive ]] && command -v fastfetch >/dev/null 2>&1; then
-    fastfetch
-fi
-
 export PATH="$PATH:/sbin:/usr/sbin"
 
 if [ -f "$HOME/.local/bin/env" ]; then
