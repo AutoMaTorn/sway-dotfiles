@@ -26,13 +26,13 @@
     },
 
     "sway/language": {
-        "format": "{short}",
+        "format": "[{short}]",
         "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     },
 
     "pulseaudio": {
-        "format": "VOL {volume}%",
-        "format-muted": "MUTED",
+        "format": "[VOL {volume}%]",
+        "format-muted": "[MUTED]",
         "scroll-step": 5,
         "on-click": "pavucontrol",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
@@ -40,15 +40,15 @@
 
     "memory": {
         "interval": 2,
-        "format": "RAM {percentage}%"
+        "format": "[RAM {percentage}%]"
     },
 
     "bluetooth": {
-        "format": "BT on",
-        "format-off": "BT off",
-        "format-disabled": "BT off",
-        "format-connected": "BT {device_alias}",
-        "format-connected-battery": "BT {device_alias} {device_battery_percentage}%",
+        "format": "[BT on]",
+        "format-off": "[BT off]",
+        "format-disabled": "[BT off]",
+        "format-connected": "[BT {device_alias}]",
+        "format-connected-battery": "[BT {device_alias} {device_battery_percentage}%]",
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
         "on-click": "kitty -e bluetui",
@@ -57,24 +57,24 @@
 
     "network": {
         "interval": 2,
-        "format-wifi": "{essid} {signalStrength}%",
-        "format-ethernet": "ETH",
-        "format-linked": "{ifname} (no IP)",
-        "format-disconnected": "offline",
+        "format-wifi": "[{essid} {signalStrength}%]",
+        "format-ethernet": "[ETH]",
+        "format-linked": "[{ifname} (no IP)]",
+        "format-disconnected": "[offline]",
         "tooltip-format": "{ifname} {ipaddr}\n↓ {bandwidthDownBytes}  ↑ {bandwidthUpBytes}",
         "on-click": "kitty -e nmtui",
         "on-click-right": "nm-connection-editor"
     },
 
     "clock#date": {
-        "format": "{:%d %B}",
+        "format": "[{:%d %B}]",
         "locale": "ru_RU.UTF-8",
         "tooltip-format": "<tt>{calendar}</tt>"
     },
 
     "clock#time": {
         "interval": 1,
-        "format": "{:%H:%M}",
+        "format": "[{:%H:%M}]",
         "tooltip": false
     }
 }

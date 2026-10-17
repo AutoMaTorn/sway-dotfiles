@@ -1,4 +1,4 @@
-/* Monochrome white/grey palette; right side is a light→dark staircase. */
+/* Monochrome white/grey palette. */
 @define-color background #181818;
 @define-color foreground #EDEDED;
 @define-color primary    #d9d9d9;
@@ -61,25 +61,18 @@ tooltip label {
     padding: 0 8px;
 }
 
-/* ---- right: staircase ---- */
+/* ---- right ---- */
 #language, #pulseaudio, #memory, #bluetooth, #network, #clock {
-    padding: 0 10px;
+    padding: 0 4px;
+    background: transparent;
+    color: @foreground;
 }
-
-#language   { background: @color1; color: @background; }
-#pulseaudio { background: @color2; color: @background; }
-#memory     { background: @color3; color: @background; }
-#bluetooth  { background: @color4; color: @background; }
-#network    { background: @color5; color: @foreground; }
-#clock.date { background: @color6; color: @foreground; }
-#clock.time { background: @color7; color: @foreground; }
+#clock.time { padding-right: 10px; }
 
 /* states */
 #pulseaudio.muted,
 #bluetooth.off,
-#bluetooth.disabled {
-    color: @color5;
-}
+#bluetooth.disabled,
 #network.disconnected {
     color: @disabled;
 }
