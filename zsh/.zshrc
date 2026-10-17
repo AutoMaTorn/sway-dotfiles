@@ -1,17 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
-plugins=(zsh-autosuggestions)   # no git plugin: its aliases/hooks slow startup
-DISABLE_AUTO_UPDATE="true"
-DISABLE_UPDATE_PROMPT="true"
-ZSH_DISABLE_COMPFIX="true"
+plugins=(git zsh-autosuggestions)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#8a8a8a"
-DEFAULT_USER=$USER   # hides user@host in agnoster
-
-# Run compinit once from cache and stub it, so Oh My Zsh doesn't rescan
-# fpath (compaudit + full dump rebuild) on every shell.
-autoload -Uz compinit
-compinit -C -d ~/.zcompdump   # after installing new completions: rm ~/.zcompdump
-compinit() { :; }
 
 if [ -f "$ZSH/oh-my-zsh.sh" ]; then
     source "$ZSH/oh-my-zsh.sh"
@@ -32,7 +22,6 @@ if (( $+functions[prompt_segment] )); then
         _ag_segment "$bg" "$fg" "$@"
     }
 fi
-alias ll='ls -lah --color=auto' gs='git status'
 
 export PATH="$PATH:/sbin:/usr/sbin"
 
