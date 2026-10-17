@@ -1,15 +1,33 @@
 # sway-dotfiles
 
-Sway (Wayland) session: sway, waybar, fuzzel, swaync, kanshi, portal config,
-plus kitty, nvim, zsh, fastfetch, sponux and the wallpaper.
+Sway (Wayland) session: SwayFX, waybar, fuzzel, swaync, kanshi, portal config,
+plus kitty, zsh (Oh My Zsh, agnoster), fastfetch, sponux and the wallpaper.
 
-    ./install.sh
+## Install on a clean Debian 13
 
-Needs: sway waybar fuzzel swaync kanshi swayidle swaylock grim slurp xdg-desktop-portal-wlr.
+Minimal netinst is enough (no desktop needed). Your user must have sudo:
 
-## SwayFX (rounded corners)
+    su -c "apt install sudo git && usermod -aG sudo $USER"   # once, then re-login
+    git clone https://github.com/AutoMaTorn/sway-dotfiles ~/sway-dotfiles
+    ~/sway-dotfiles/install.sh
+    sudo reboot
 
-Window corners need SwayFX 0.5.1 + scenefx 0.3 (match Debian 13's wlroots 0.18),
-built from source into `~/.local`. Start the session with `bin/sway-session`.
-For a login-manager entry, create `/usr/share/wayland-sessions/swayfx.desktop`
-with `Exec=/home/<user>/sway-dotfiles/bin/sway-session`.
+`install.sh` is safe to re-run. It:
+
+- installs the packages from `packages.txt` (`[apt]` and the `[build]` deps);
+- adds Brave, sponux and bluetui (.deb from GitHub releases) and Telegram (flatpak);
+- installs JetBrainsMono Nerd Font into `~/.local/share/fonts`;
+- builds SwayFX 0.5.1 + scenefx 0.3 into `~/.local` (rounded corners);
+- symlinks the configs into `~/.config` and `~/.zshrc` (old files are kept as `*.bak.<time>`);
+- installs Oh My Zsh + zsh-autosuggestions and makes zsh your login shell;
+- adds the `SwayFX` session to `/usr/share/wayland-sessions` and, if there is no
+  display manager, sets up greetd + tuigreet as the login screen.
+
+Then pick **SwayFX** on the login screen. If Wi-Fi was configured by the Debian
+installer, remove its `wl*` lines from `/etc/network/interfaces` so NetworkManager
+(`nmtui`, waybar) can manage it.
+
+## Other terminals
+
+The agnoster prompt needs a Nerd Font. kitty is already set up; in VS Code add
+`"terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono', monospace"`.

@@ -44,4 +44,4 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
 fi
 
 # kimi-code
-export PATH="/home/torn/.kimi-code/bin:$PATH"
+[ -d "$HOME/.kimi-code/bin" ] && export PATH="$HOME/.kimi-code/bin:$PATH"
