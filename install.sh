@@ -25,7 +25,7 @@ fi
 
 # Everything the sway config launches must exist
 missing=()
-for c in sway waybar fuzzel mako kanshi swayidle swaylock grim slurp wl-copy \
+for c in sway waybar fuzzel swaync kanshi swayidle swaylock grim slurp wl-copy \
          brightnessctl playerctl pactl lxpolkit kitty thunar brave-browser bluetui; do
     command -v "$c" >/dev/null || [ -x "$HOME/.cargo/bin/$c" ] || missing+=("$c")
 done
@@ -41,7 +41,7 @@ link() {
     echo "linked $dst -> $src"
 }
 
-for d in sway waybar fuzzel mako kanshi; do
+for d in sway waybar fuzzel swaync kanshi; do
     link "$DIR/.config/$d" "$HOME/.config/$d"
 done
 for v in 3.0 4.0; do

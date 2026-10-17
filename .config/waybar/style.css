@@ -78,7 +78,7 @@ tooltip label {
     background: transparent;
     color: @foreground;
 }
-#clock.time { padding-right: 16px; }
+
 
 /* states */
 #pulseaudio.muted,

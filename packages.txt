@@ -2,7 +2,7 @@
 
 [apt]
 # Session
-sway swaybg swayidle swaylock waybar fuzzel mako-notifier kanshi xwayland
+sway swaybg swayidle swaylock waybar fuzzel sway-notification-center kanshi xwayland
 lxpolkit
 # Screenshots & clipboard
 grim slurp wl-clipboard

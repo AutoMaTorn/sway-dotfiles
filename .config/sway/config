@@ -32,7 +32,7 @@ bindgesture swipe:3:left workspace next
 bindgesture swipe:3:right workspace prev
 
 ### Autostart
-exec mako
+exec swaync
 exec kanshi
 exec lxpolkit
 exec nmcli general reload
@@ -55,7 +55,7 @@ bindsym $super+l exec ~/.config/sway/lock.sh
 bindsym $super+e exec thunar
 bindsym $super+w exec brave-browser
 bindsym $super+t exec flatpak run org.telegram.desktop
-bindsym $super+n exec makoctl dismiss
+bindsym $super+n exec swaync-client -t -sw
 bindsym $super+Escape exec ~/.config/sway/power-menu.sh
 
 ### Media keys

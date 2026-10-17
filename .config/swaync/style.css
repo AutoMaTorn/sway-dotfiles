@@ -1,0 +1,65 @@
+/* Monochrome palette, matches waybar. */
+@define-color background #181818;
+@define-color surface    #232323;
+@define-color border     #4d4d4d;
+@define-color foreground #EDEDED;
+@define-color muted      #8a8a8a;
+@define-color accent     #d9d9d9;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+.notification-row { outline: none; }
+.notification-row .notification-background { padding: 4px 8px; }
+
+.notification-background .notification {
+    background: @background;
+    border: 2px solid @border;
+    border-radius: 14px;
+    padding: 4px;
+}
+.notification.critical { border-color: @accent; }
+.notification .summary { color: @foreground; font-weight: bold; }
+.notification .body, .notification .time { color: @muted; }
+.notification-content { padding: 6px; }
+.close-button {
+    background: @surface;
+    color: @foreground;
+    border-radius: 50%;
+    margin: 6px;
+}
+
+.control-center {
+    background: @background;
+    border: 2px solid @border;
+    border-radius: 14px;
+    color: @foreground;
+}
+.control-center .notification-row .notification-background .notification {
+    background: @surface;
+}
+
+.widget-title { margin: 12px; }
+.widget-title > label { color: @foreground; font-size: 16px; font-weight: bold; }
+.widget-title > button {
+    background: @surface;
+    color: @foreground;
+    border: none;
+    border-radius: 12px;
+    padding: 4px 12px;
+}
+.widget-title > button:hover { background: @border; }
+
+.widget-dnd { margin: 0 12px 8px; color: @foreground; }
+.widget-dnd > switch {
+    background: @surface;
+    border-radius: 12px;
+    border: none;
+}
+.widget-dnd > switch:checked { background: @accent; }
+.widget-dnd > switch slider { background: @foreground; border-radius: 12px; }
+.widget-dnd > switch:checked slider { background: @background; }
+
+.control-center-list-placeholder { color: @muted; }
