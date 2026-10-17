@@ -54,7 +54,7 @@
         "format-connected-battery": "[BT {device_alias} {device_battery_percentage}%]",
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
-        "on-click": "~/.config/sway/bt-menu.sh", "on-click-middle": "kitty -e bluetui",
+        "on-click": "kitty -e bluetui",
         "on-click-right": "rfkill toggle bluetooth"
     },
 
@@ -65,7 +65,7 @@
         "format-linked": "[{ifname} (no IP)]",
         "format-disconnected": "[offline]",
         "tooltip-format": "{ifname} {ipaddr}\n↓ {bandwidthDownBytes}  ↑ {bandwidthUpBytes}",
-        "on-click": "~/.config/sway/wifi-menu.sh", "on-click-middle": "kitty -e nmtui",
+        "on-click": "kitty -e nmtui",
         "on-click-right": "nm-connection-editor"
     },
 
