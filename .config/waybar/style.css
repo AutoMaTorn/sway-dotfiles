@@ -1,0 +1,119 @@
+/* Same palette and light→dark staircase as polybar/config.ini.
+   color1-3 carry dark text, color4-7 light text (contrast ≥ 4.5:1). */
+@define-color background #181818;
+@define-color foreground #EDEDED;
+@define-color primary    #c3efed;
+@define-color alert      #C9D9D8;
+@define-color disabled   #939393;
+@define-color color1 #ededed;
+@define-color color2 #b7b7b7;
+@define-color color3 #939393;
+@define-color color4 #6b6b6b;
+@define-color color5 #5c5c5c;
+@define-color color6 #4d4d4d;
+@define-color color7 #3d3d3d;
+@define-color color8 #c3efed;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @background;
+    color: @foreground;
+}
+
+tooltip {
+    background: @background;
+    border: 2px solid @color6;
+}
+tooltip label {
+    color: @foreground;
+}
+
+/* ---- left ---- */
+#workspaces button {
+    padding: 0 8px;
+    color: @disabled;
+    background: transparent;
+    box-shadow: none;
+}
+#workspaces button:hover {
+    background: @color7;
+}
+#workspaces button.focused {
+    background: @primary;
+    color: @background;
+}
+#workspaces button.visible:not(.focused) {
+    color: @foreground;
+}
+#workspaces button.urgent {
+    background: @alert;
+    color: @background;
+}
+
+#mode {
+    background: @alert;
+    color: @background;
+    padding: 0 8px;
+}
+
+#mpris {
+    background: @color8;
+    color: @background;
+    padding: 0 8px;
+}
+
+/* ---- right: staircase ---- */
+#tray,
+#language,
+#battery,
+#pulseaudio,
+#memory,
+#bluetooth,
+#network,
+#clock,
+#custom-power {
+    padding: 0 8px;
+}
+
+#tray { padding: 0 10px; }
+#tray > .needs-attention { background: @alert; }
+
+#language   { background: @color1; color: @background; }
+#battery    { background: @color2; color: @background; }
+#pulseaudio { background: @color3; color: @background; }
+#memory     { background: @color4; color: @foreground; }
+#bluetooth  { background: @color5; color: @foreground; }
+#network    { background: @color6; color: @foreground; }
+#clock.date { background: @color7; color: @foreground; }
+#clock.time { background: @color8; color: @background; }
+
+#custom-power {
+    background: @background;
+    color: @foreground;
+    padding: 0 12px;
+}
+#custom-power:hover {
+    background: @color7;
+}
+
+/* states */
+#pulseaudio.muted,
+#bluetooth.off,
+#bluetooth.disabled,
+#network.disconnected {
+    color: @disabled;
+}
+#battery.warning:not(.charging) {
+    background: @alert;
+}
+#battery.critical:not(.charging) {
+    background: @foreground;
+    color: @background;
+}

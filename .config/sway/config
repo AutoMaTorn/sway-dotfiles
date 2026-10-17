@@ -1,0 +1,154 @@
+set $super Mod4
+set $alt Mod1
+
+font pango:monospace 14
+floating_modifier $super normal
+
+# Debian's snippets: export WAYLAND_DISPLAY etc. to systemd/dbus (portals need it).
+# Replaces the dbus-update-activation-environment / systemctl lines from i3.
+include /etc/sway/config.d/*
+
+### Outputs
+# Wallpaper (replaces feh)
+output * bg ~/.config/wallpapers/wallpaper.jpeg fill
+# Monitors (replaces autodisplay.sh / xrandr). Names: swaymsg -t get_outputs
+# output eDP-1 scale 1.25
+# Profiles for plug/unplug live in ~/.config/kanshi/config.
+
+### Input (replaces setxkbmap + touchpad part of startup.sh)
+input type:keyboard {
+    xkb_layout us,ru
+    xkb_options grp:alt_shift_toggle
+}
+
+input type:touchpad {
+    tap enabled
+    dwt enabled
+    # natural_scroll enabled
+}
+
+# Touchpad gestures (replaces touchegg)
+bindgesture swipe:3:left workspace next
+bindgesture swipe:3:right workspace prev
+
+### Autostart
+exec mako
+exec kanshi
+exec nm-applet --indicator
+exec blueman-applet
+exec nmcli general reload
+exec nmcli radio wifi on
+exec_always sponux --daemon
+
+# Lock after 5 min, screen off after 10, lock before sleep
+exec swayidle -w \
+    timeout 300 '~/.config/sway/lock.sh' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep '~/.config/sway/lock.sh'
+
+### Apps
+bindsym $super+Return exec kitty
+bindsym $super+space exec fuzzel
+bindsym $super+d exec sponux
+bindsym $super+shift+s exec grim -g "$(slurp)" - | wl-copy -t image/png
+bindsym $super+l exec ~/.config/sway/lock.sh
+bindsym $super+e exec thunar
+bindsym $super+w exec yandex-browser
+bindsym $super+t exec flatpak run org.telegram.desktop
+bindsym $super+n exec makoctl dismiss
+bindsym $super+Escape exec ~/.config/sway/power-menu.sh
+
+### Media keys
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+
+### Windows
+bindsym $super+q kill
+
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+bindsym $super+h split h
+bindsym $super+v split v
+
+bindsym $super+f fullscreen toggle
+bindsym $alt+space floating toggle
+bindsym $super+Shift+space focus mode_toggle
+
+### Workspaces
+bindsym $alt+Tab workspace next
+bindsym $alt+Shift+Tab workspace prev
+bindsym $super+Control+Right workspace next
+bindsym $super+Control+Left workspace prev
+bindsym $super+1 workspace number 1
+bindsym $super+2 workspace number 2
+bindsym $super+3 workspace number 3
+bindsym $super+4 workspace number 4
+bindsym $super+5 workspace number 5
+bindsym $super+6 workspace number 6
+bindsym $super+7 workspace number 7
+bindsym $super+8 workspace number 8
+bindsym $super+9 workspace number 9
+bindsym $super+0 workspace number 10
+
+bindsym $super+Shift+1 move container to workspace number 1
+bindsym $super+Shift+2 move container to workspace number 2
+bindsym $super+Shift+3 move container to workspace number 3
+bindsym $super+Shift+4 move container to workspace number 4
+bindsym $super+Shift+5 move container to workspace number 5
+bindsym $super+Shift+6 move container to workspace number 6
+bindsym $super+Shift+7 move container to workspace number 7
+bindsym $super+Shift+8 move container to workspace number 8
+bindsym $super+Shift+9 move container to workspace number 9
+bindsym $super+Shift+0 move container to workspace number 10
+
+### Session
+bindsym $super+BackSpace reload
+bindsym $super+shift+e exec swaynag -t warning -m 'Really, exit?' -B 'Yes' 'swaymsg exit'
+
+bindsym $super+r mode "resize"
+mode "resize" {
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+### Bar
+bar {
+    swaybar_command waybar
+}
+
+### Look
+client.focused          #c3efed #181818 #EDEDED #c3efed #c3efed
+client.focused_inactive #525252 #181818 #939393 #525252 #181818
+client.unfocused        #525252 #181818 #939393 #525252 #181818
+client.urgent           #C9D9D8 #181818 #EDEDED #C9D9D8 #C9D9D8
+client.placeholder      #525252 #181818 #939393 #525252 #181818
+
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders smart
+gaps inner 10
+gaps outer 5
+
+# Settings windows opened from the bar float instead of tiling
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="blueman-manager"] floating enable
+for_window [app_id="nm-connection-editor"] floating enable
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable

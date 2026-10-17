@@ -1,0 +1,19 @@
+# Auto-switch outputs on HDMI plug/unplug — replaces i3/autodisplay.sh (xrandr)
+# for the sway session. Output names confirmed via DRM (card0-eDP-1,
+# card0-HDMI-A-1); sway drops the "cardN-" prefix. Re-check with
+# `swaymsg -t get_outputs` if a name below doesn't match.
+
+profile laptop {
+    output eDP-1 enable
+}
+
+profile docked {
+    output eDP-1 enable
+    output HDMI-A-1 enable
+    # No fixed position: sway places newly enabled outputs left-to-right
+    # by default. To stack the external monitor above the laptop panel
+    # (like the old autodisplay.sh did), find its real resolution with
+    # `swaymsg -t get_outputs` once docked and set both lines explicitly:
+    #   output HDMI-A-1 position 0,-<HDMI height>
+    #   output eDP-1 position 0,0
+}
