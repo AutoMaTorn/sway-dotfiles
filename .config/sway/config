@@ -5,11 +5,10 @@ font pango:monospace 14
 floating_modifier $super normal
 
 # Debian's snippets: export WAYLAND_DISPLAY etc. to systemd/dbus (portals need it).
-# Replaces the dbus-update-activation-environment / systemctl lines from i3.
 include /etc/sway/config.d/*
 
 ### Outputs
-# Wallpaper (replaces feh)
+# Wallpaper
 output * bg ~/.config/wallpapers/wallpaper.jpeg fill
 # Monitors (replaces autodisplay.sh / xrandr). Names: swaymsg -t get_outputs
 # output eDP-1 scale 1.25
@@ -27,7 +26,7 @@ input type:touchpad {
     # natural_scroll enabled
 }
 
-# Touchpad gestures (replaces touchegg)
+# Touchpad gestures
 bindgesture swipe:3:left workspace next
 bindgesture swipe:3:right workspace prev
 

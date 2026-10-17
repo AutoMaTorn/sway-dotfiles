@@ -27,4 +27,4 @@ fonts-jetbrains-mono fonts-noto-color-emoji
 # JetBrainsMono Nerd Font - https://github.com/ryanoasis/nerd-fonts (waybar/fuzzel font)
 # telegram       - flatpak install flathub org.telegram.desktop
 # sponux         - own app
-# wallpaper      - ~/.config/wallpapers/wallpaper.jpeg (from ~/dotfiles)
+# wallpaper      - ~/.config/wallpapers/wallpaper.jpeg (in this repo)

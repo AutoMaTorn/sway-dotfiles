@@ -1,5 +1,5 @@
-# Auto-switch outputs on HDMI plug/unplug — replaces i3/autodisplay.sh (xrandr)
-# for the sway session. Output names confirmed via DRM (card0-eDP-1,
+# Auto-switch outputs on HDMI plug/unplug
+# Output names confirmed via DRM (card0-eDP-1,
 # card0-HDMI-A-1); sway drops the "cardN-" prefix. Re-check with
 # `swaymsg -t get_outputs` if a name below doesn't match.
 

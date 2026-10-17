@@ -41,13 +41,26 @@ link() {
     echo "linked $dst -> $src"
 }
 
-for d in sway waybar fuzzel swaync kanshi; do
+for d in sway waybar fuzzel swaync kanshi kitty nvim fastfetch sponux wallpapers; do
     link "$DIR/.config/$d" "$HOME/.config/$d"
 done
 for v in 3.0 4.0; do
     link "$DIR/.config/gtk-$v/settings.ini" "$HOME/.config/gtk-$v/settings.ini"
 done
-# ~/.config/xdg-desktop-portal may itself be a symlink (i3 dotfiles repo);
-# link the single file so both sessions coexist.
+# Link the single file: ~/.config/xdg-desktop-portal stays a real directory.
 link "$DIR/.config/xdg-desktop-portal/sway-portals.conf" \
      "$HOME/.config/xdg-desktop-portal/sway-portals.conf"
+
+link "$DIR/zsh/.zshrc" "$HOME/.zshrc"
+
+# Oh My Zsh + autosuggestions (used by zsh/.zshrc)
+if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
+    rm -rf "$HOME/.oh-my-zsh"
+    RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+        || echo "WARNING: Oh My Zsh install failed"
+fi
+AS="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+if [ -d "$HOME/.oh-my-zsh" ] && [ ! -f "$AS/zsh-autosuggestions.zsh" ]; then
+    git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "$AS" \
+        || echo "WARNING: zsh-autosuggestions install failed"
+fi

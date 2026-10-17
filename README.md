@@ -1,7 +1,7 @@
 # sway-dotfiles
 
-Sway (Wayland) session: sway, waybar, fuzzel, swaync, kanshi, portal config.
-Mirrors the i3 setup in `~/dotfiles` (same palette, keybindings, apps).
+Sway (Wayland) session: sway, waybar, fuzzel, swaync, kanshi, portal config,
+plus kitty, nvim, zsh, fastfetch, sponux and the wallpaper.
 
     ./install.sh
 
