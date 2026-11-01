@@ -1,7 +1,7 @@
 # sway-dotfiles
 
 Sway (Wayland) session: SwayFX, waybar, fuzzel, swaync, kanshi, portal config,
-plus kitty, zsh (Oh My Zsh, agnoster), fastfetch, sponux and the wallpaper.
+plus kitty, zsh (Oh My Zsh, agnoster), fastfetch, sponux, the wallpaper and neovim.
 
 ## Install on a clean Debian 13
 
@@ -31,3 +31,8 @@ installer, remove its `wl*` lines from `/etc/network/interfaces` so NetworkManag
 
 The agnoster prompt needs a Nerd Font. kitty is already set up; in VS Code add
 `"terminal.integrated.fontFamily": "'BlexMono Nerd Font Mono', monospace"`.
+
+## Neovim
+
+`.config/nvim` is linked to `~/.config/nvim`: no plugins, just line numbers, indent,
+the `mono` theme and `Ctrl-h/j/k/l` to move between windows.

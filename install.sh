@@ -107,7 +107,7 @@ fi
 missing=()
 for c in sway waybar fuzzel swaync kanshi swayidle swaylock grim slurp wl-copy \
          brightnessctl playerctl pactl lxpolkit kitty thunar brave-browser bluetui \
-         sponux nmtui gsettings zsh fastfetch; do
+         sponux nmtui gsettings zsh fastfetch nvim; do
     command -v "$c" >/dev/null || missing+=("$c")
 done
 [ -x "$HOME/.local/bin/sway" ] || missing+=("swayfx")
@@ -115,7 +115,7 @@ done
 
 ### Configs
 step "config symlinks"
-for d in sway waybar fuzzel swaync kanshi kitty fastfetch sponux wallpapers; do
+for d in sway waybar fuzzel swaync kanshi kitty fastfetch sponux nvim wallpapers; do
     link "$DIR/.config/$d" "$HOME/.config/$d"
 done
 for v in 3.0 4.0; do
