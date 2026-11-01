@@ -15,8 +15,8 @@
 */
 
 :root {
-    /* "JetBrains Mono" does not resolve on this machine — only the Nerd Font
-       build is installed. Check a name with: fc-match "JetBrainsMono Nerd Font" */
-    --sponux-font: "JetBrainsMono Nerd Font";
+    /* "IBM Plex Mono" does not resolve on this machine — only the Nerd Font
+       build is installed. Check a name with: fc-match "BlexMono Nerd Font" */
+    --sponux-font: "BlexMono Nerd Font";
     --sponux-font-size: 15px;
 }

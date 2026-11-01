@@ -16,7 +16,7 @@ Minimal netinst is enough (no desktop needed). Your user must have sudo:
 
 - installs the packages from `packages.txt` (`[apt]` and the `[build]` deps);
 - adds Brave, sponux and bluetui (.deb from GitHub releases) and Telegram (flatpak);
-- installs JetBrainsMono Nerd Font into `~/.local/share/fonts`;
+- installs BlexMono Nerd Font into `~/.local/share/fonts`;
 - builds SwayFX 0.5.1 + scenefx 0.3 into `~/.local` (rounded corners);
 - symlinks the configs into `~/.config` and `~/.zshrc` (old files are kept as `*.bak.<time>`);
 - installs Oh My Zsh + zsh-autosuggestions and makes zsh your login shell;
@@ -30,4 +30,4 @@ installer, remove its `wl*` lines from `/etc/network/interfaces` so NetworkManag
 ## Other terminals
 
 The agnoster prompt needs a Nerd Font. kitty is already set up; in VS Code add
-`"terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono', monospace"`.
+`"terminal.integrated.fontFamily": "'BlexMono Nerd Font Mono', monospace"`.

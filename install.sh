@@ -76,12 +76,12 @@ flatpak info org.telegram.desktop >/dev/null 2>&1 \
     || sudo flatpak install -y --noninteractive flathub org.telegram.desktop \
     || warn "Telegram install failed"
 
-### JetBrainsMono Nerd Font (waybar, fuzzel, swaync, kitty, swaylock, agnoster prompt)
-if ! fc-list : family | grep 'JetBrainsMono Nerd Font' >/dev/null; then
-    step "JetBrainsMono Nerd Font"
-    FONTDIR="$HOME/.local/share/fonts/JetBrainsMonoNerdFont"
+### BlexMono Nerd Font = IBM Plex Mono with Nerd glyphs (waybar, fuzzel, swaync, kitty, swaylock, agnoster prompt)
+if ! fc-list : family | grep 'BlexMono Nerd Font' >/dev/null; then
+    step "BlexMono Nerd Font"
+    FONTDIR="$HOME/.local/share/fonts/BlexMonoNerdFont"
     mkdir -p "$FONTDIR"
-    curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz \
+    curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IBMPlexMono.tar.xz \
         | tar -xJ -C "$FONTDIR" && fc-cache -f "$FONTDIR" \
         || warn "Nerd Font install failed"
 fi

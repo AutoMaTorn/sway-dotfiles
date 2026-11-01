@@ -21,7 +21,7 @@ zsh fastfetch neovim
 # Tools
 jq libnotify-bin libglib2.0-bin curl git ca-certificates gnupg xz-utils fontconfig
 # Fonts
-fonts-jetbrains-mono fonts-noto-color-emoji
+fonts-noto-color-emoji
 
 [build]
 # SwayFX 0.5.1 + scenefx 0.3 (built into ~/.local by install.sh)
@@ -36,7 +36,7 @@ libxcb-icccm4-dev libxcb-composite0-dev libxcb-xfixes0-dev libxcb-res0-dev libxc
 # Everything below is installed by install.sh, not from the Debian repos:
 # brave-browser  - official Brave apt repo
 # sponux, bluetui - .deb from github.com/AutoMaTorn/{sponux,bluetui} releases
-# JetBrainsMono Nerd Font - github.com/ryanoasis/nerd-fonts -> ~/.local/share/fonts
+# BlexMono Nerd Font - github.com/ryanoasis/nerd-fonts -> ~/.local/share/fonts
 # telegram       - flatpak, flathub org.telegram.desktop
 # oh-my-zsh, zsh-autosuggestions - git
 # greetd + tuigreet - only when no display manager is installed

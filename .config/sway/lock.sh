@@ -13,6 +13,6 @@ exec swaylock -f \
     --separator-color 00000000 \
     --text-color EDEDED --text-ver-color EDEDED \
     --text-clear-color EDEDED --text-wrong-color EDEDED \
-    --font "JetBrainsMono Nerd Font" \
+    --font "BlexMono Nerd Font" \
     --indicator-radius 80 --indicator-thickness 6 \
     --show-failed-attempts
