@@ -1,18 +1,4 @@
 #!/bin/sh
-# Launch Sway/SwayFX: SwayFX built in ~/.local wins (Debian), then the system one (Void).
+# Launch SwayFX built in ~/.local (falls back to system sway).
 export PATH="$HOME/.local/bin:$PATH"
-
-# NVIDIA proprietary driver: sway refuses to start without --unsupported-gpu.
-# No WLR_RENDERER=vulkan here: SwayFX (scenefx) only has the GLES renderer.
-if [ -d /sys/module/nvidia ]; then
-    export GBM_BACKEND=nvidia-drm
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export WLR_NO_HARDWARE_CURSORS=1
-    set -- --unsupported-gpu "$@"
-fi
-
-# Without systemd (Void) there is no session bus yet: start one for sway.
-if [ -z "${DBUS_SESSION_BUS_ADDRESS:-}" ] && command -v dbus-run-session >/dev/null; then
-    exec dbus-run-session sway "$@"
-fi
 exec sway "$@"
