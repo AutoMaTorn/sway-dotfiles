@@ -6,6 +6,8 @@ floating_modifier $super normal
 
 # Debian's snippets: export WAYLAND_DISPLAY etc. to systemd/dbus (portals need it).
 include /etc/sway/config.d/*
+# The same for dbus on systems without systemd (Void); harmless on Debian.
+exec dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 
 ### Outputs
 # Wallpaper
@@ -32,9 +34,12 @@ bindgesture swipe:3:left workspace next
 bindgesture swipe:3:right workspace prev
 
 ### Autostart
+# Without systemd nobody starts PipeWire (it brings up wireplumber + pipewire-pulse)
+exec [ -d /run/systemd/system ] || pipewire
 exec swaync
 exec kanshi
-exec lxpolkit
+# Polkit agent: lxpolkit on Debian, polkit-gnome on Void
+exec command -v lxpolkit >/dev/null && exec lxpolkit || exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec nmcli general reload
 exec nmcli radio wifi on
 exec_always sponux --daemon
