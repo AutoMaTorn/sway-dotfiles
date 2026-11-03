@@ -1,4 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR=nvim
+export VISUAL=nvim
 ZSH_THEME="agnoster"
 plugins=(git zsh-autosuggestions)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#8a8a8a"
